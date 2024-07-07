@@ -43,4 +43,18 @@ class Emote(Enum):
     FLEUR = "<:fleur_main:1257920162489827470>"
     HONGLU = "<:honglu_main:1257920167220875304>"
 
+class Code_Name(Enum):
+    헤브 = "geb"
+    이상 = "yisang"
+    이금 = "yigeum"
+    베스 = "beth"
+    류드밀라 = "ludmila"
+    몬태그 = "montag"
+    가환 = "gahwan"
+    플뢰르 = "fleur"
+    홍루 = "honglu"
+    밍기뉴 = "ming"
+    히스클리프 = "heath"
+
+
 

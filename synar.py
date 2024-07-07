@@ -1,19 +1,7 @@
 
-from enums import *
-from discord_auth import *
-from discord.ext import commands
-from threads import *
+from libraries import *
 
-import google_sheets as gs
-import discord
-import time
-import random
-import numpy as np
-
-
-@bot.event
-async def on_ready():
-    print(f'{bot.user.name} -- finished')
+from init import *
 
 '''
 @bot.event
@@ -21,14 +9,15 @@ async def on_message(m):
     username = str(ctx.author)
     content = str(ctx.context)
     channel = str(ctx.channel)
-    print(f"{username}, {content}, {channel}")
-    bot.process_commands(m)
+
+    #bot.process_commands(m)
 '''
+
 
 @bot.command(aliases=['오프', '끄기', 'exit'])
 async def quit(ctx, *arg):
-    exit_event.set()
-    restore_timer.join()
+    #exit_event.set()
+    #restore_timer.join()
     await bot.close()
 
 @bot.command(aliases=["헤브", "헤부"])
@@ -37,12 +26,14 @@ async def geb_line(ctx):
     username = str(ctx.author)
     content = str(ctx.message.content)
     channel = str(ctx.channel)
+
     await ctx.message.delete()
     
     content = content[content.index(" "):]
 
     await ctx.send(f"{Emote.GEB.value}")
     await ctx.send(f"{content}\n{blnk}")
+    await ctx.send(Cookbook1a)
 
 @bot.command(aliases=['이상'])
 async def yisang_line(ctx):
