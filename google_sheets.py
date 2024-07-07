@@ -30,7 +30,7 @@ try:
     scopes = ["https://www.googleapis.com/auth/drive", "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/spreadsheets"]
     secret_file = os.path.join(os.getcwd(), '.client_secret.json')
 
-    spreadsheet_id = '1-_mze5cRMMc5tex04GLgXQVkcGZBNfpgRfcXAG_nVyo'
+    spreadsheet_id = '1qdxDBuTFeGZyIa9dH3U7B7xWc8abdQ0Qt4de8BE2f8M'
 
     credentials = service_account.Credentials.from_service_account_file(secret_file, scopes=scopes)
     service = discovery.build('sheets', 'v4', credentials=credentials)
@@ -67,6 +67,7 @@ r -- range name (both in string)
 
 """
 
+# for one row. 
 def put(s, r, m):
 
     values = [m]
@@ -74,6 +75,7 @@ def put(s, r, m):
 
     sheet.update(spreadsheetId=spreadsheet_id, body=data, range=sheetRange(s, r), valueInputOption='USER_ENTERED').execute()
 
+# for multiple rows
 def put_multiple(s, r, m):
 
     values = m
@@ -100,6 +102,7 @@ def flatten(a):
 def get_single(s, r):
     return flatten(get(s, r))[0]
 
+# for single.
 def put_single(s, r, m):
     put(s,r,[m])
 
