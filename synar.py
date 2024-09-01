@@ -13,6 +13,43 @@ async def on_message(m):
     #bot.process_commands(m)
 '''
 
+def datetimeInput(timestamp):
+    pass
+
+# -HTML 2024 09 01:02 10:22pm 10:30pm
+
+@bot.command(aliases=['HTML', 'html'])
+async def getHTML(ctx, *arg):
+    username = str(ctx.author)
+    content = str(ctx.message.content)
+    channel = str(ctx.channel)
+
+    if not (channel == '일상-역극' or channel == '메인-스토리-진행' or channel == "test1"):
+        return
+
+    timestamps = content.split()[1:]
+
+    year = int(timestamps[0])
+    month = int(timestamps[1])
+    day1 = int(timestamps[2].split(':')[0])
+    day2 = day1
+    if len(timestamps[2].split(':')) > 1:
+        day2 = int(timestamps[2].split(':')[1])
+
+    time1 = timestamps[3]
+    time2 = timestamps[4]
+    
+    print(year)
+    print(month)
+    print(day1)
+    print(day2)
+    print(time1)
+    print(time2)
+
+
+    
+
+    pass
 
 @bot.command(aliases=['오프', '끄기', 'exit'])
 async def quit(ctx, *arg):
