@@ -29,11 +29,11 @@ async def geb_line(ctx):
 
     await ctx.message.delete()
     
-    content = content[content.index(" "):]
+    content = content[content.index(" ")+1:]
 
     await ctx.send(f"{Emote.GEB.value}")
     await ctx.send(f"{content}\n{blnk}")
-    await ctx.send(Cookbook1a)
+    #await ctx.send(Cookbook1a)
 
 @bot.command(aliases=['이상'])
 async def yisang_line(ctx):
@@ -43,7 +43,7 @@ async def yisang_line(ctx):
     channel = str(ctx.channel)
     await ctx.message.delete()
     
-    content = content[content.index(" "):]
+    content = content[content.index(" ")+1:]
 
     await ctx.send(f"{Emote.YISANG.value}")
     await ctx.send(f"{content}\n{blnk}")   
@@ -57,7 +57,7 @@ async def yigeum_line(ctx):
     channel = str(ctx.channel)
     await ctx.message.delete()
     
-    content = content[content.index(" "):]
+    content = content[content.index(" ")+1:]
 
     await ctx.send(f"{Emote.YIGEUM.value}")
     await ctx.send(f"{content}\n{blnk}")   
@@ -71,7 +71,7 @@ async def beth_line(ctx):
     channel = str(ctx.channel)
     await ctx.message.delete()
     
-    content = content[content.index(" "):]
+    content = content[content.index(" ")+1:]
 
     await ctx.send(f"{Emote.BETH.value}")
     await ctx.send(f"{content}\n{blnk}")   
@@ -85,7 +85,7 @@ async def ludmila_line(ctx):
     channel = str(ctx.channel)
     await ctx.message.delete()
     
-    content = content[content.index(" "):]
+    content = content[content.index(" ")+1:]
 
     await ctx.send(f"{Emote.LUDMILA.value}")
     await ctx.send(f"{content}\n{blnk}")   
@@ -99,7 +99,7 @@ async def montag_line(ctx):
     channel = str(ctx.channel)
     await ctx.message.delete()
     
-    content = content[content.index(" "):]
+    content = content[content.index(" ")+1:]
 
     await ctx.send(f"{Emote.MONTAG.value}")
     await ctx.send(f"{content}\n{blnk}")   
@@ -113,7 +113,7 @@ async def gahwan_line(ctx):
     channel = str(ctx.channel)
     await ctx.message.delete()
     
-    content = content[content.index(" "):]
+    content = content[content.index(" ")+1:]
 
     await ctx.send(f"{Emote.GAHWAN.value}")
     await ctx.send(f"{content}\n{blnk}")   
@@ -126,7 +126,7 @@ async def fleur_line(ctx):
     channel = str(ctx.channel)
     await ctx.message.delete()
     
-    content = content[content.index(" "):]
+    content = content[content.index(" ")+1:]
 
     await ctx.send(f"{Emote.FLEUR.value}")
     await ctx.send(f"{content}\n{blnk}")   
@@ -139,7 +139,7 @@ async def honglu_line(ctx):
     channel = str(ctx.channel)
     await ctx.message.delete()
     
-    content = content[content.index(" "):]
+    content = content[content.index(" ")+1:]
 
     await ctx.send(f"{Emote.HONGLU.value}")
     await ctx.send(f"{content}\n{blnk}")   
@@ -152,7 +152,7 @@ async def ming_line(ctx):
     channel = str(ctx.channel)
     await ctx.message.delete()
     
-    content = content[content.index(" "):]
+    content = content[content.index(" ")+1:]
 
     await ctx.send(f"{Emote.MING.value}")
     await ctx.send(f"{content}\n{blnk}")   
@@ -165,7 +165,7 @@ async def heath_line(ctx):
     channel = str(ctx.channel)
     await ctx.message.delete()
     
-    content = content[content.index(" "):]
+    content = content[content.index(" ")+1:]
 
     await ctx.send(f"{Emote.HEATH.value}")
     await ctx.send(f"{content}\n{blnk}")   
