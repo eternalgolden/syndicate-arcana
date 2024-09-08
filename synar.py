@@ -13,11 +13,6 @@ async def on_message(m):
     #bot.process_commands(m)
 '''
 
-def datetimeInput(timestamp):
-    pass
-
-# -HTML 2024 09 01:02 10:22pm 10:30pm
-
 @bot.command(aliases=['HTML', 'html'])
 async def getHTML(ctx, *arg):
     username = str(ctx.author)
@@ -27,29 +22,47 @@ async def getHTML(ctx, *arg):
     if not (channel == '일상-역극' or channel == '메인-스토리-진행' or channel == "test1"):
         return
 
-    timestamps = content.split()[1:]
+    # -HTML (idnum) (idnum)
 
-    year = int(timestamps[0])
-    month = int(timestamps[1])
-    day1 = int(timestamps[2].split(':')[0])
-    day2 = day1
-    if len(timestamps[2].split(':')) > 1:
-        day2 = int(timestamps[2].split(':')[1])
+    parsed = content.split()[1:]
+    message1 = await ctx.fetch_message(int(parsed[0]))
+    message2 = await ctx.fetch_message(int(parsed[1]))
 
-    time1 = timestamps[3]
-    time2 = timestamps[4]
+    # start building string
+
+    # alwyas include DIV_HEADER @ start
+    # div starter -> div_profile_NAME(HTML[character].value) -> div_text_starter -> text -> div_ender
+
+    HTML_doc = DIV_HEADER
+
+    # get first character
+
+    character = message1.content.split(":")[1].split("_")[0]
+
+    #HTML_doc += HTML[character].value
+
+    async for message in ctx.channel.history(limit=1000, before=message2.created_at, after=message1.created_at, oldest_first=True):
+
+        # character emoji message - change character
+        if(message.content.find('_main') != -1):
+            print(message.content)
+            character = message.content.split(":")[1].split("_")[0]
+        
+        # text message - push HTML code onto HTML_doc
+        else:
+            HTML_doc += DIV_STARTER + HTML[character].value + DIV_TEXT_STARTER + message.content + DIV_ENDER
+
+    HTML_doc += DIV_STARTER + HTML[character].value + DIV_TEXT_STARTER + message2.content + DIV_ENDER
+
+    f = open("discord_html_send.txt", "w")
+    f.write(HTML_doc)
+    f.close()
+
+    nameoffile = datetime.now().strftime("%Y%m%d")
+    nameoffile += "-htmloutput.txt"
     
-    print(year)
-    print(month)
-    print(day1)
-    print(day2)
-    print(time1)
-    print(time2)
+    await ctx.send(file=discord.File(r"c:\Users\amapon\Desktop\SyndicateArcana\discord_html_send.txt", filename=nameoffile))
 
-
-    
-
-    pass
 
 @bot.command(aliases=['오프', '끄기', 'exit'])
 async def quit(ctx, *arg):
